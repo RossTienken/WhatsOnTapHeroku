@@ -3,7 +3,7 @@ let router = express.Router();
 let knex = require('../knex')
 let admin = require("firebase-admin");
 let service_account = require('../firebase-adminsdk.json') // import service_account account config found in FireBase sdk account
-let dbURL = 'http://localhost:3000' // import db url found in FireBase sdk service account config
+let dbURL = process.env.DATABASE_URL || 'http://localhost:3000' // import db url found in FireBase sdk service account config
 
 // get set up instructions from FB cog next to project overview in project settings
 admin.initializeApp({
